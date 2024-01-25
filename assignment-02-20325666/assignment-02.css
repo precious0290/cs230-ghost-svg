@@ -1,0 +1,184 @@
+/*contains all my display button styles, background style and font styles for the titles and words ->https://www.w3schools.com/css/css_font.asp, https://www.w3schools.com/howto/howto_css_shapes.asp, https://www.rapidtables.com/web/color/RGB_Color.html*/
+
+/* right , left, position, r how i wanted to place my css projects and align them*/
+body{
+     background: linear-gradient(#CCFFFF, #CCFFE5,#CCCCFF);
+    height:800px;
+}
+/*messing with background coordinates seems to mess up button controls */
+
+.button { /* all my buttons take attributes from this button class-> https://www.w3schools.com/css/css3_buttons.asp*/
+  background-color: #E0E0E0; /* Grey*/
+  border: none;
+  color: #000099;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button:hover {background-color: #C0C0C0} /* i loved the stylistic features of the type of clicks on the buttons, i had them on my food pyramid */
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.animate {
+    border-radius: 12px;   
+}
+.downloads {border-radius: 12px;}
+.export {border-radius: 12px;}
+
+#animations{
+    text-align: center;
+    position: absolute;
+    left:5px;
+    font-size: 60px;
+    
+    
+}
+.animationScreen {
+  height: 380px;
+  width: 420px;
+    position: absolute;
+    top:10px;
+    left:420px;
+  background-color:  #4C0099;
+}
+.buttonBox{
+     height: 100px;
+  width: 460px;
+    position: absolute;
+    top:450px;
+    left:420px;
+    background-color:  #3399FF;
+}
+h1{
+    text-align: center;
+    position: absolute;
+    float:fixed;
+    top:380px;
+    left:480px;
+    color:#009999;
+     font-family: "Lucida Handwriting", "Courier New", monospace;
+}
+h2{
+    text-align: center;
+    position: absolute;
+    float:fixed;
+    top:550px;
+    left:520px;
+    font-size: 30px;
+    color:#660000;
+     font-family: "Lucida Handwriting", "Courier New", monospace;
+}
+h3{
+    text-align: center;
+    position: absolute; /*for some reason useing absolute works tho onload some of the text looks jumbled up such as the title, text and the svg source */
+    float:fixed;
+    top:510px;
+    right:1110px;
+     font-size: 30px;
+    color:#000066;
+     font-family: "Lucida Handwriting", "Courier New", monospace;
+}
+h4{
+     text-align: center;
+    position: absolute;
+    float:fixed;
+    top:0px; /*if i take this out the title defaults to bottom of the screen */
+    right:190px;
+    font-size: 45px;
+    color:#FF66B2;
+     font-family: "Lucida Handwriting", "Courier New", monospace;
+}
+h5{
+    text-align: center;
+    position: absolute;
+    float:fixed;
+    top:500px;
+    right:190px;
+    font-size: 40px;
+    color:#006600;
+     font-family: "Lucida Handwriting", "Courier New", monospace;
+}
+#animationButtons
+{
+    text-align: center;
+    position: absolute;
+    top: 30px;
+    left:400px;
+    font-size: 20px;
+}
+.changeColour
+{
+    text-align: center;
+    position: absolute;
+    top: 140px; 
+    left:675px; 
+    font-size: 20px;
+    border-radius: 12px;
+}
+.changeSize{
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    left:655px;
+    font-size: 20px;
+    border-radius: 12px;
+}
+.disappears{
+    text-align: center;
+    position: absolute;
+    top: 140px;
+    left:455px;
+    font-size: 20px;
+    border-radius: 12px;
+}
+.spinEyes{
+     text-align: center;
+    position: absolute;
+    top: 290px; 
+    left:475px; /*switch the positions of spinEYES#(overIt) and rotating(roundabout)*/
+    font-size: 20px;
+    border-radius: 12px;
+}
+.rotating{
+     text-align: center;
+    position: absolute;
+    top: 10px;
+    left:445px;  /*switch positioning rotating w   */
+    font-size: 20px;
+    border-radius: 12px;
+}
+.eyeBrowsChange{
+    text-align: center;
+    position: absolute;
+    top: 290px;
+    left:695px;
+    font-size: 20px;
+    border-radius: 12px;
+}
+.svgBox{
+     height: 320px;
+  width: 400px;
+    text-align: center;
+    position: absolute;
+    top: 240px;
+    left:920px;
+  background-color: #FFCCE5;
+    overflow: scroll;
+}
+#svgBody{
+    background: linear-gradient(#CCFFFF, #CCFFE5,#CCCCFF);
+    margin: auto;
+    position: relative;
+    align-items: center;
+    height:900px;
+    width:1450px;
+}

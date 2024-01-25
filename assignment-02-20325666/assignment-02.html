@@ -1,0 +1,125 @@
+<!--apologies for the non technical terms used, this was how i understood the functions i was using and what they did-->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head> 
+         <meta charset="UTF-8">
+         <title>Phoenix's Ghost Animation</title>
+        <link href="assignment-02.css" rel="stylesheet" type="text/css"/> <!--link to my css stylesheet -->
+         
+        </head>
+<body onload= "Hide()">
+    <div id="svgBody">  
+<svg  id= "ghostieSVG" width="400"	height="480"	viewBox="0	0	100	120">
+ <rect	 id="background"	 width="400"	 height="420"	 style="fill:#E5CCFF;"/> <!--the background of the ghost , taken and changed from john keatings svg ghost figure 1 src-->
+   
+<g	id="ghostiehead"	transform="rotate(0),	translate(0,0),	scale	(1.0)">
+    <animateTransform  id="rotating" attributeName="transform" type="rotate" values=" 0 0 0; 360 0 0;0 0 0; -360 0 0; 0 0 0" attributeType="XML" begin="rotate()" dur="1s"/> <!--found this for the rotate https://codepen.io/spreak/pen/XWXyoe--> <!--nb: 0 0 from translate is the center of the body , its important to include this in the rotate function to show what point u r rotating from.-->
+    <!-- 0 0 0; 180 0 0; 0 0 0; -180 0 0 (sort of a swing not sure if i like it tho-->
+    <!-- 0 0 0; 360 0 0; turns around the entire screen-->
+ 	 	 	  <circle id="head" cx="50" cy="50" r="50" fill="white" > <!--ghost head-->
+     <animate id="colourChangeC" attributeName="fill" values="white;#7F00FF;#33FF99;#FF99CC;#CCE5FF;#FFFF99;white" attributeType="XML" begin="ColourChange()" dur="5s"/> <!-- this changes the colour of the ghost head, i needed 2 because the ghost was made of 2 shapes, a circle and a trapezium-->
+    </circle>
+   
+    <g id="ghostieBody" transform="rotate(0),	translate(0,55),	scale	(3.0)">   
+     <polygon points="5,10, 25,0, 30,24, 0, 20" fill="white"> <!--ghost body trapezium https://stackoverflow.com/questions/68731153/how-to-create-a-trapezium-shape-using-svg-->
+        
+       <animate id="colourChangeB" attributeName="fill" values="white;#7F00FF;#33FF99;#FF99CC;#CCE5FF;#FFFF99;white" attributeType="XML" begin="ColourChange()" dur="5s"/>  <!--changes the colour of the body when called-->
+        </polygon>
+        
+         </g><!-- 10,0,25,0 seems to b the actual top part of the trapezium, 0 seems to break the shape when incremented , 30 24 0 and 20 r the lower half it seems -->
+  
+    <circle id="mouth" cx="50" cy="55" r="5" stroke="black" stroke-width="0" fill="black" opacity="1" > 
+    <animate id="mouthGone" attributeName="opacity"  from="1" to="0" attributeType="XML" begin="Disappear()" dur="2s"/> <!-- found this website for the opacity code https://stackoverflow.com/questions/11828179/svg-animation-opacity-on-loop-->
+    
+    </circle>	<!--found this code snipped on w3schools for the circle this is the mouth of ghostie-->
+<g	id="eyes"	transform="rotate(0,50,40),	translate(0,0)">
+<g	id="eye-l"	transform="rotate(0,50,40),	translate(0,0)">
+<ellipse id="eye-l-ball"	 cx="45"	 cy="40"	 rx="4"	 ry="6"	 style="stroke:black;	fill:black;" >
+ <animate id="sizeChangeL" attributeName="rx" values="4;2;3;4" attributeType="XML" begin="Size()" dur="5s"/>   <!--changes the shape of the left eye ball-->
+    
+    </ellipse>
+<rect	transform="rotate(16,46,35)"	x="40"	y="33"	width="11"	height="6"	fill="white" visibility="hidden"	/>
+    <circle	id="eye-l-pupil"	cx="45"	cy="44"	r="0.5"	style="stroke:white;	fill:white" >
+       <animate id="moveLP" attributeName="cy"  values="44;40;36;34;36;44" attributeType="XML" begin="spin()" dur="2s"/>  <!-- this is the call to the method to make the pupil move up and down-->
+        </circle> 
+<g	id="eye-l-brow"> 
+<path	 d="M	 41	 32	 Q	 45	 27	 49	 32"	 stroke="black"	 stroke-width="0.5"	fill="transparent">
+    <animate id="angwyL"
+              attributeName="d"
+              dur="3s"
+              values="M     41   32     Q     45     27     49    32;M41 28 Q45 27 49 32;M     41   32     Q     45     27     49    32" begin="ChangeEyebrowShape()"
+            /> <!--https://stackoverflow.com/questions/65697105/svg-path-animation-jump, it has some awkward perks im still working on but i used this code to start the animation for the eyebrows, i wanted to animate the brow expression to make it angry-->
+    
+    
+    </path>
+</g>
+</g>
+<g	id="eye-r"	transform="rotate(0,50,40),	translate(0,0)">
+<ellipse	 id="eye-r-ball"	 cx="55"	 cy="40"	 rx="4"	 ry="6"	 style="stroke:black;	
+                                                                                fill:black">
+     <animate id="sizeChangeR" attributeName="rx" values="4;2;3;4" attributeType="XML" begin="Size()" dur="5s"/> <!--changes the size of the right eyeball-->
+    
+    </ellipse>
+ <rect	 transform="rotate(-16,56,35)"	 x="49"	 y="32"	 width="11"	 height="6"	
+fill="white"	visibility="hidden"	/>
+<circle	id="eye-r-pupil"	cx="55"	cy="44"	r="0.5"	style="stroke:white;	fill:white">
+    <animate id="moveRP" attributeName="cy"  values="44;40;36;34;36;44" attributeType="XML" begin="spin()" dur="2s"/> <!-- this is the call to the method to make the pupil move up and down-->
+    
+    </circle>
+</g>
+<g	id="eye-r-brow">
+ <path d="M     51   32     Q     55     27     59    32"	 stroke="black"	 stroke-width="0.5"	
+fill="transparent">
+   <animate id="angwyR"
+              attributeName="d"
+              dur="3s"
+              values="M     51   32     Q     55     27     59    32;M51 32 Q55 27 59 28;M     51   32     Q     55     27     59    32" begin="ChangeEyebrowShape()"
+            /> <!--https://stackoverflow.com/questions/65697105/svg-path-animation-jump, it has some awkward perks im still working on but i used this code to start the animation for the eyebrows, i wanted to animate the brow expression to make it angry-->
+    
+    </path>
+    <!-- abt Path-> 1st number after M is x coordinate, second is y, last number after Q is curve moover, smaller ==higher, bigger==lower -->
+</g>
+</g>
+</g>
+</svg>
+
+<h4>Phoenix's<br> Ghostie<br> Animation</h4> <!--title of project-->
+   <!--i saw the breaks in someone's code online and rlly liked how it formatted the text, i googled to learn what it meant, its very nice for formatting imo-->
+    
+<div class="buttonBox"><!-- because i wanted my 3 main buttons to align perfectly in a box i made a box class to place my buttons inside, because all the positions were absolute i didnt have to worry abt repositioning every single button in the div-->       
+<div id="animations">
+    
+<button class="button animate"  id="an" onclick="Show()">animation</button> <!-- when animate is called all the different animation buttons appear on the screen for the user-->
+    <button class="button export" id="svg" onclick="ShowSource()">SVG/Source</button> 
+    <button class="button downloads" id="do" onClick= "Download()">download</button> 
+    </div>
+    </div>
+    <div class ="animationScreen"></div> <!--screen where all my buttons go-->
+    
+    
+    
+    <!--all my animation buttons-->
+    <button class="button changeColour" id="c" onclick="ColourChange()">DiscoBall</button>
+    <button class="button changeSize" id="s" onclick="Size()">SpoopyEyes</button>
+    <button class="button disappears" id="d" onclick="Disappear()">WeBHidin</button>
+    <button class="button spinEyes" id="sp" onclick="spin()">OverIt</button>
+    <button class="button rotating" id="m" onclick="rotate()">Roundabout</button>
+     <button class="button eyeBrowsChange" id="e" onclick="ChangeEyebrowShape()">Angwy</button>
+    
+    
+
+     <h1> ANIMATION ZONE</h1> <!-- these r my labels for the different zones i have-->
+    <h2> BUTTON ZONE</h2>
+    <h3> SVG/SOURCE ZONE</h3>
+    
+    
+    <div class="svgBox" id="box"></div> <!--where the source code for the svg is placed-->
+    <h5>SOURCE CODE</h5>
+    </div>
+</body>
+     <script src ="./assignment-02.js"></script>
+</html>
+
+
